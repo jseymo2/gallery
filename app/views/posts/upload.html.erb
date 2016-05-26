@@ -1,5 +1,5 @@
 <%= form_tag "/posts/create", method: "post", multipart: true do %>
-	<%= file_field_tag :source %><br />
+	<%= file_field_tag :source, accept: 'image/*' %><br />
     <%= text_area_tag :description, "", size: "30x3" %><br />
     <%= submit_tag "Upload" %>
 <% end %>

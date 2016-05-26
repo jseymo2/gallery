@@ -1,6 +1,6 @@
+<strong><%= link_to "Add post", controller: "posts", action: "upload" %></strong><br><br>
 <% @posts.each do |post| %>
-	<%= image_tag("uploads/" + post.source, size: "80") %>
-    <%= link_to post.id, controller: "posts", action: "show", id: post %>
+    <%= link_to image_tag("uploads/" + post.source, size: "100"), controller: "posts", action: "show", id: post %>
     <%= link_to "Edit", controller: "posts", action: "update", id: post %>
     <%= link_to "Delete", contoller: "posts", action: "delete", id: post %>
     <br>

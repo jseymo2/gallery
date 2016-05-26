@@ -1,2 +1,10 @@
-<h1>Posts#update</h1>
-<p>Find me in app/views/posts/update.html.erb</p>
+<%= image_tag("uploads/" + @post.source, size: "600") %>
+<p>
+	<STRONG>Old Description</STRONG><br>
+	<%= @post.description %>
+</p>
+<%= form_tag "/posts/modify", method: "post" do %>
+    <%= hidden_field_tag :id, @post.id %>
+    <%= text_area_tag :description, "", size: "30x3" %><br />
+    <%= submit_tag "Update" %>
+<% end %>

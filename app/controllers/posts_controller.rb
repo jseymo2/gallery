@@ -12,6 +12,12 @@ class PostsController < ApplicationController
   end
 
   def update
+  	@post = Post.find(params[:id])
+  end
+
+  def modify
+  	Post.update(params[:id], :description => params[:description])
+  	redirect_to action: "show", id: params[:id]
   end
 
   def delete
@@ -20,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def create
-  	File.open(Rails.root.join('assets', 'images', 'uploads', params[:source].original_filename), 'wb') do |file|
+  	File.open(Rails.root.join('app', 'assets', 'images', 'uploads', params[:source].original_filename), 'wb') do |file|
     	file.write(params[:source].read)
     end
 	@post = Post.create(source: params[:source].original_filename, description: params[:description])
