@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
-	<%= image_tag("uploads/" + Post.find(8).source, size: "80") %>
-    <%= link_to post.name, post_path(post) %>
-    <%= link_to post.author, author_path(:id => post.author_id)%>
-    <%= link_to post.genre, genre_path(:id => post.genre)%>
-    <%= link_to "Add to favorites", favorite_posts_path(:post_id => post.id, :user_id => current_user.id, :post_name => post.name), :action => :create, :method => :post %>
+	<%= image_tag("uploads/" + post.source, size: "80") %>
+    <%= link_to post.id, controller: "posts", action: "show", id: post %>
+    <%= link_to "Edit", controller: "posts", action: "update", id: post %>
+    <%= link_to "Delete", contoller: "posts", action: "delete", id: post %>
+    <br>
   <% end %>

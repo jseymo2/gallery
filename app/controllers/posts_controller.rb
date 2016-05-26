@@ -8,10 +8,15 @@ class PostsController < ApplicationController
   end
 
   def index
-  	@posts = Post.find(:all)
+  	@posts = Post.all
   end
 
   def update
+  end
+
+  def delete
+  	Post.find(params[:id]).destroy
+  	redirect_to action: "index"
   end
 
   def create

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/delete'
+
   get 'posts/upload'
 
   get 'posts/show'
